@@ -2,27 +2,72 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lab 2</title>
-    <link rel="stylesheet" href="../css/style.css">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Lab 2 - Multivariate Visualization</title>
+
+    <link rel="stylesheet"
+          href="../css/style.css">
 </head>
+
 <body>
-    <nav class="lab-nav" aria-label="Lab navigation">
-        <a href="../index.html">Home</a>
-        <a href="../lab1/index.html">Lab 1</a>
-        <a href="../lab2/index.html">Lab 2</a>
-        <a href="../lab3/index.html">Lab 3</a>
-        <a href="../lab4/index.html">Lab 4</a>
-        <a href="../lab5/index.html">Lab 5</a>
-        <a href="../lab6/index.html">Lab 6</a>
-        <a href="../lab7/index.html">Lab 7</a>
-        <a href="../lab8/index.html">Lab 8</a>
-        <a href="../lab9/index.html">Lab 9</a>
-        <a href="../lab10/index.html">Lab 10</a>
-    </nav>
-    <main>
-        <h1>Lab 2</h1>
-        <p>Lab 2 will be added here.</p>
-    </main>
+
+<header>
+    <h1>STATS 401</h1>
+    <p>Data Acquisition and Visualization</p>
+</header>
+
+<nav class="lab-nav">
+    <a href="../lab1/index.html">Lab 1</a>
+    <a href="../lab2/index.html">Lab 2</a>
+    <a href="../lab3/index.html">Lab 3</a>
+    <a href="../lab4/index.html">Lab 4</a>
+    <a href="../lab5/index.html">Lab 5</a>
+    <a href="../lab6/index.html">Lab 6</a>
+    <a href="../lab7/index.html">Lab 7</a>
+    <a href="../lab8/index.html">Lab 8</a>
+    <a href="../lab9/index.html">Lab 9</a>
+    <a href="../lab10/index.html">Lab 10</a>
+</nav>
+
+<main>
+    <h2>Lab 2: Multivariate Visualization with D3</h2>
+
+    <p>
+        This visualization explores population, temperature,
+        development level, and region across twelve cities.
+    </p>
+
+    <div id="chart"></div>
+
+    <div id="tooltip" class="tooltip"></div>
+
+    <section class="design-justification">
+        <h2>Design Justification</h2>
+
+        <p>
+        I use bar length to represent population because population
+        is a ratio variable and its magnitude can be compared
+        directly across cities. Temperature is represented by the
+        horizontal position of a circular marker along a Celsius
+        scale, making differences in climate easy to compare.
+        Development level is encoded by circle size, with larger
+        circles representing higher development levels. Because
+        development level is ordinal, increasing size provides a
+        visual sense of its ordered categories from Low to High.
+        Region is represented by color, which allows viewers to
+        quickly identify cities belonging to the same region. City
+        names are shown directly on the chart, and tooltips provide
+        the exact values for each city. This design allows viewers
+        to compare population and temperature while also observing
+        how development level and region vary across cities.
+    </p>
+    </section>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+<script src="lab2.js"></script>
+
 </body>
 </html>

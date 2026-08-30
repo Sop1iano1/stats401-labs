@@ -1,4 +1,4 @@
-git add -Aconst width = 900;
+const width = 900;
 const height = 520;
 const margin = { top: 50, right: 30, bottom: 120, left: 30 };
 
