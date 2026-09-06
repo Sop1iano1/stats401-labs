@@ -1,0 +1,10 @@
+financial_signal,sentiment,count
+BUY,Negative,21
+BUY,Neutral,437
+BUY,Positive,126
+HOLD,Negative,12
+HOLD,Neutral,243
+HOLD,Positive,79
+SELL,Negative,11
+SELL,Neutral,410
+SELL,Positive,161

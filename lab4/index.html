@@ -1,28 +1,284 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lab 4</title>
-    <link rel="stylesheet" href="../css/style.css">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Lab 4 - Cleaning Web Data for Visualization</title>
+
+    <link rel="stylesheet"
+          href="../css/style.css">
+
+    <style>
+
+
+        .dataset-summary {
+            display: flex;
+            gap: 20px;
+            margin: 25px 0;
+            flex-wrap: wrap;
+        }
+
+        .summary-card {
+            border: 1px solid #ddd;
+            padding: 15px 25px;
+            min-width: 150px;
+        }
+
+        .summary-card .number {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+
+        /* Visualization */
+
+        #chart {
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        #chart svg {
+            display: block;
+            margin: 0 auto;
+        }
+
+
+        /* Grid lines */
+
+        .grid line {
+            stroke: #ddd;
+            stroke-opacity: 0.7;
+        }
+
+        .grid path {
+            display: none;
+        }
+
+
+        /* Tooltip */
+
+        .tooltip {
+            position: absolute;
+            opacity: 0;
+            pointer-events: none;
+
+            padding: 12px 14px;
+
+            background: rgba(30, 30, 30, 0.94);
+            color: white;
+
+            border-radius: 6px;
+
+            font-size: 13px;
+            line-height: 1.6;
+
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+        }
+
+
+        .methodology {
+            margin-top: 35px;
+        }
+
+        .methodology p {
+            line-height: 1.6;
+        }
+
+    </style>
+
 </head>
+
+
 <body>
-    <nav class="lab-nav" aria-label="Lab navigation">
-        <a href="../index.html">Home</a>
-        <a href="../lab1/index.html">Lab 1</a>
-        <a href="../lab2/index.html">Lab 2</a>
-        <a href="../lab3/index.html">Lab 3</a>
-        <a href="../lab4/index.html">Lab 4</a>
-        <a href="../lab5/index.html">Lab 5</a>
-        <a href="../lab6/index.html">Lab 6</a>
-        <a href="../lab7/index.html">Lab 7</a>
-        <a href="../lab8/index.html">Lab 8</a>
-        <a href="../lab9/index.html">Lab 9</a>
-        <a href="../lab10/index.html">Lab 10</a>
-    </nav>
-    <main>
-        <h1>Lab 4</h1>
-        <p>Lab 4 will be added here.</p>
-    </main>
+
+<header>
+
+    <h1>STATS 401</h1>
+
+    <p>Data Acquisition and Visualization</p>
+
+</header>
+
+
+<nav class="lab-nav">
+
+    <a href="../lab1/index.html">Lab 1</a>
+
+    <a href="../lab2/index.html">Lab 2</a>
+
+    <a href="../lab3/index.html">Lab 3</a>
+
+    <a href="../lab4/index.html">Lab 4</a>
+
+    <a href="../lab5/index.html">Lab 5</a>
+
+    <a href="../lab6/index.html">Lab 6</a>
+
+    <a href="../lab7/index.html">Lab 7</a>
+
+    <a href="../lab8/index.html">Lab 8</a>
+
+    <a href="../lab9/index.html">Lab 9</a>
+
+    <a href="../lab10/index.html">Lab 10</a>
+
+</nav>
+
+
+<main>
+
+    <h2>Lab 4: Cleaning Web Data for Visualization</h2>
+
+    <p>
+
+        This project cleans and analyzes a large collection of
+
+        financial tweets and uses a RoBERTa-based sentiment model
+
+        to examine how tweet sentiment varies across different
+
+        market regimes.
+
+    </p>
+
+
+    <!-- =====================================================
+         Dataset summary
+         ===================================================== -->
+
+    <div class="dataset-summary">
+
+        <div class="summary-card">
+
+            <div class="number"
+                 id="total-records">
+                —
+            </div>
+
+            <div>Analyzed Records</div>
+
+        </div>
+
+
+        <div class="summary-card">
+
+            <div class="number"
+                 id="positive-count">
+                —
+            </div>
+
+            <div>Positive</div>
+
+        </div>
+
+
+        <div class="summary-card">
+
+            <div class="number"
+                 id="neutral-count">
+                —
+            </div>
+
+            <div>Neutral</div>
+
+        </div>
+
+
+        <div class="summary-card">
+
+            <div class="number"
+                 id="negative-count">
+                —
+            </div>
+
+            <div>Negative</div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         Main visualization
+         ===================================================== -->
+
+    <section>
+
+        <h2>Sentiment Distribution Across Market Regimes</h2>
+
+        <p>
+
+            Each bar represents the percentage composition of
+
+            sentiment within a market regime. Hover over a segment
+
+            to view the number of records, percentage share, and
+
+            average sentiment score.
+
+        </p>
+
+        <div id="chart"></div>
+
+        <div id="tooltip"
+             class="tooltip">
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         Methodology
+         ===================================================== -->
+
+<section class="methodology">
+    <h2>Analysis</h2>
+
+    <p>
+        The original dataset contains 30,427 financial tweet records
+        with tweet text and market-related attributes. I cleaned the
+        full dataset using Python and pandas by checking missing values,
+        exact duplicates, timestamps, numeric fields, categorical
+        variables, and text formatting. For text analysis, the tweet
+        text was normalized, tokenized, filtered for stop words, and
+        lemmatized before constructing the DTM and TF-IDF representations.
+        For sentiment analysis, I used a reproducible random sample of
+        3,000 tweets (random state = 401). The original text was only
+        lightly normalized before being processed with the
+        <code>cardiffnlp/twitter-roberta-base-sentiment-latest</code>
+        model. Each tweet was assigned the sentiment with the highest
+        predicted probability, and the sentiment score was calculated as
+        positive probability minus negative probability.
+    </p>
+
+    <p>
+        The 3,000-tweet sentiment sample is predominantly neutral, with
+        2,227 tweets classified as Neutral, compared with 654 Positive
+        and 119 Negative tweets. The visualization further compares
+        sentiment composition across four market regimes. Volatile
+        periods have the highest negative sentiment share (5.7%) and
+        the lowest positive share (20.5%), while also having the lowest
+        average sentiment score (0.220). In contrast, trending-down
+        periods have the lowest negative share (2.2%), the highest
+        positive share (24.6%), and the highest average sentiment score
+        (0.292). These results suggest an association between market
+        regime and the distribution of tweet sentiment in this sample.
+    </p>
+</section>
+
+</main>
+
+
+<script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+
+<script src="lab4.js"></script>
+
 </body>
+
 </html>
