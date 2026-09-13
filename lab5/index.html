@@ -1,28 +1,577 @@
 <!DOCTYPE html>
+
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lab 5</title>
-    <link rel="stylesheet" href="../css/style.css">
+
+<head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>Lab 5 — Interactive Network Visualization</title> <link rel="stylesheet" href="../css/style.css">
+
+<style>
+    #chart {
+        width: 100%;
+        overflow-x: auto;
+    }
+
+    #chart svg {
+        display: block;
+        margin: 20px auto;
+        border: 1px solid #ddd;
+        background: white;
+    }
+
+    #legend {
+        max-width: 900px;
+        margin: 10px auto 30px;
+        padding: 15px;
+        border: 1px solid #ddd;
+        background: #fafafa;
+    }
+
+    #legend h3 {
+        margin-top: 0;
+    }
+
+    .legend-row {
+        margin: 8px 0;
+    }
+
+    .legend-label {
+        font-weight: 600;
+        margin-right: 12px;
+    }
+
+    .legend-item {
+        margin-right: 16px;
+        white-space: nowrap;
+    }
+
+    .legend-color {
+        display: inline-block;
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        margin-right: 4px;
+        vertical-align: middle;
+    }
+
+    .district-central {
+        background: #4e79a7;
+    }
+
+    .district-north {
+        background: #f28e2c;
+    }
+
+    .district-south {
+        background: #e15759;
+    }
+
+    .district-east {
+        background: #76b7b2;
+    }
+
+    .district-west {
+        background: #59a14f;
+    }
+
+    .route-color {
+        display: inline-block;
+        width: 28px;
+        height: 4px;
+        margin-right: 5px;
+        vertical-align: middle;
+    }
+
+    .route-metro {
+        background: #66c2a5;
+    }
+
+    .route-express {
+        background: #fc8d62;
+    }
+
+    .route-shuttle {
+        background: #8da0cb;
+    }
+
+    #tooltip {
+        position: absolute;
+        opacity: 0;
+        pointer-events: none;
+        padding: 8px 10px;
+        background: white;
+        border: 1px solid #999;
+        border-radius: 4px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+        font-size: 13px;
+        line-height: 1.5;
+        z-index: 1000;
+    }
+
+    .node-label {
+        pointer-events: none;
+    }
+
+    #matrix {
+        width: 100%;
+        overflow-x: auto;
+    }
+
+    #matrix svg {
+        display: block;
+        margin: 20px auto;
+        border: 1px solid #ddd;
+        background: white;
+    }
+
+    .findings-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 15px;
+    }
+
+    .findings-table th,
+    .findings-table td {
+        border: 1px solid #ddd;
+        padding: 10px;
+        vertical-align: top;
+        text-align: left;
+    }
+
+    .findings-table th {
+        background: #f5f5f5;
+    }
+
+    .findings-table td:first-child {
+        width: 5%;
+        text-align: center;
+        font-weight: 600;
+    }
+
+    .findings-table td:nth-child(2) {
+        width: 12%;
+    }
+
+    .findings-table td:nth-child(3) {
+        width: 12%;
+    }
+
+    .findings-table td:nth-child(4) {
+        width: 26%;
+    }
+
+    .findings-table td:nth-child(5) {
+        width: 45%;
+    }
+
+    .interaction-note {
+        margin-top: 12px;
+        padding: 10px 12px;
+        background: #f8f8f8;
+        border-left: 4px solid #999;
+    }
+
+    .question-list {
+        margin-top: 10px;
+        margin-bottom: 20px;
+    }
+
+    .question-list li {
+        margin-bottom: 8px;
+    }
+</style>
+
 </head>
+
 <body>
-    <nav class="lab-nav" aria-label="Lab navigation">
-        <a href="../index.html">Home</a>
-        <a href="../lab1/index.html">Lab 1</a>
-        <a href="../lab2/index.html">Lab 2</a>
-        <a href="../lab3/index.html">Lab 3</a>
-        <a href="../lab4/index.html">Lab 4</a>
-        <a href="../lab5/index.html">Lab 5</a>
-        <a href="../lab6/index.html">Lab 6</a>
-        <a href="../lab7/index.html">Lab 7</a>
-        <a href="../lab8/index.html">Lab 8</a>
-        <a href="../lab9/index.html">Lab 9</a>
-        <a href="../lab10/index.html">Lab 10</a>
-    </nav>
-    <main>
-        <h1>Lab 5</h1>
-        <p>Lab 5 will be added here.</p>
-    </main>
+
+<header>
+    <h1>STATS 401</h1>
+    <p>Data Acquisition and Visualization</p>
+</header>
+
+<nav class="lab-nav" aria-label="Lab navigation">
+    <a href="../lab1/index.html">Lab 1</a>
+    <a href="../lab2/index.html">Lab 2</a>
+    <a href="../lab3/index.html">Lab 3</a>
+    <a href="../lab4/index.html">Lab 4</a>
+    <a href="../lab5/index.html">Lab 5</a>
+    <a href="../lab6/index.html">Lab 6</a>
+    <a href="../lab7/index.html">Lab 7</a>
+    <a href="../lab8/index.html">Lab 8</a>
+    <a href="../lab9/index.html">Lab 9</a>
+    <a href="../lab10/index.html">Lab 10</a>
+</nav>
+
+<main>
+
+    <h1>Lab 5 — Interactive Network Visualization</h1>
+
+    <section>
+
+        <h2>1. Dataset Description</h2>
+
+        <p>
+            This visualization uses the provided synthetic urban transit
+            network containing 50 stations and 50 direct transit
+            connections. The network is treated as undirected, so a
+            connection between two stations represents direct travel
+            between them without implying a direction.
+        </p>
+
+        <p>
+            Each station has three attributes:
+            <strong>district</strong>,
+            <strong>daily passengers</strong>, and
+            <strong>station type</strong>.
+            Each direct connection has two attributes:
+            <strong>travel time</strong> and
+            <strong>route type</strong>.
+        </p>
+
+    </section>
+
+    <section>
+
+        <h2>2. Node-Link Visualization</h2>
+
+        <div id="chart"></div>
+
+        <div id="legend">
+
+            <h3>Node and Link Encodings</h3>
+
+            <div class="legend-row">
+
+                <span class="legend-label">District:</span>
+
+                <span class="legend-item">
+                    <span class="legend-color district-central"></span>
+                    Central
+                </span>
+
+                <span class="legend-item">
+                    <span class="legend-color district-north"></span>
+                    North
+                </span>
+
+                <span class="legend-item">
+                    <span class="legend-color district-south"></span>
+                    South
+                </span>
+
+                <span class="legend-item">
+                    <span class="legend-color district-east"></span>
+                    East
+                </span>
+
+                <span class="legend-item">
+                    <span class="legend-color district-west"></span>
+                    West
+                </span>
+
+            </div>
+
+            <div class="legend-row">
+
+                <span class="legend-label">Station type:</span>
+
+                <span class="legend-item">
+                    ○ Terminal
+                </span>
+
+                <span class="legend-item">
+                    □ Transfer
+                </span>
+
+                <span class="legend-item">
+                    ◆ Local
+                </span>
+
+            </div>
+
+            <div class="legend-row">
+
+                <span class="legend-label">Node size:</span>
+
+                <span class="legend-item">
+                    Larger = more daily passengers
+                </span>
+
+            </div>
+
+            <div class="legend-row">
+
+                <span class="legend-label">Route type:</span>
+
+                <span class="legend-item">
+                    <span class="route-color route-metro"></span>
+                    Metro
+                </span>
+
+                <span class="legend-item">
+                    <span class="route-color route-express"></span>
+                    Express
+                </span>
+
+                <span class="legend-item">
+                    <span class="route-color route-shuttle"></span>
+                    Shuttle
+                </span>
+
+            </div>
+
+            <div class="legend-row">
+
+                <span class="legend-label">Travel time:</span>
+
+                <span class="legend-item">
+                    Thicker link = longer travel time
+                </span>
+
+            </div>
+
+        </div>
+
+        <div class="interaction-note">
+
+            <strong>Interaction:</strong>
+            Drag individual stations to inspect their connections.
+            Hover over a station to highlight its directly connected
+            neighbors and view station information. Hover over a route
+            to highlight the connection and view its route type and
+            travel time. The network can also be panned and zoomed to
+            inspect different parts of the layout.
+
+        </div>
+
+    </section>
+
+    <section>
+
+        <h2>3. Node-Link Design Description</h2>
+
+        <p>
+            The node-link view uses color for district, size for daily
+            passenger volume, and shape for station type. These encodings
+            make geographic grouping, station usage, and functional role
+            distinguishable at the same time. Link width represents travel
+            time, while link color represents route type. Dragging and
+            hover highlighting support inspection of local connections,
+            and tooltips provide exact station or route attributes.
+        </p>
+
+    </section>
+
+    <section>
+
+        <h2>4. Adjacency Matrix</h2>
+
+        <div id="matrix"></div>
+
+    </section>
+
+    <section>
+
+        <h2>5. Matrix Design Description</h2>
+
+        <p>
+            The matrix uses the same 50 stations as both rows and columns.
+            A filled cell represents a direct connection, with cell color
+            showing route type and opacity showing travel time. Stations
+            are ordered by district, then station type, then ID, which
+            creates visible blocks for comparing district-level
+            connectivity. The matrix preserves individual station
+            connections while making repeated connection patterns easier
+            to compare.
+        </p>
+
+    </section>
+
+    <section>
+
+        <h2>6. Network Questions and Findings</h2>
+
+        <p><strong>Six questions from the assignment:</strong></p>
+
+        <ol class="question-list">
+
+            <li>
+                Which stations appear central in the network?
+            </li>
+
+            <li>
+                Which districts are strongly connected to one another?
+            </li>
+
+            <li>
+                Where are transfer or terminal stations located in the topology?
+            </li>
+
+            <li>
+                Which stations have high passenger volume?
+            </li>
+
+            <li>
+                Where are the longest direct travel-time connections?
+            </li>
+
+            <li>
+                Are particular route types concentrated in particular parts of the network?
+            </li>
+
+        </ol>
+
+        <table class="findings-table">
+
+            <thead>
+
+                <tr>
+                    <th>#</th>
+                    <th>Answerability</th>
+                    <th>Best Visualization</th>
+                    <th>Encoding / Interaction</th>
+                    <th>Observation</th>
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                <tr>
+
+                    <td>1</td>
+
+                    <td>Well</td>
+
+                    <td>Node-link</td>
+
+                    <td>
+                        Visible links and hover highlighting show local
+                        degree and connectivity.
+                    </td>
+
+                    <td>
+                        Several degree-3 stations appear relatively
+                        central, but there is no single dominant hub.
+                    </td>
+
+                </tr>
+
+                <tr>
+
+                    <td>2</td>
+
+                    <td>Well</td>
+
+                    <td>Matrix</td>
+
+                    <td>
+                        District ordering creates blocks that make
+                        cross-district connections easy to compare.
+                    </td>
+
+                    <td>
+                        East–South, Central–North, and East–West have the
+                        strongest connection patterns.
+                    </td>
+
+                </tr>
+
+                <tr>
+
+                    <td>3</td>
+
+                    <td>Well</td>
+
+                    <td>Node-link</td>
+
+                    <td>
+                        Station shape identifies Terminal and Transfer
+                        stations within the topology.
+                    </td>
+
+                    <td>
+                        Terminal and Transfer stations are distributed
+                        across the network, with several in relatively
+                        well-connected positions.
+                    </td>
+
+                </tr>
+
+                <tr>
+
+                    <td>4</td>
+
+                    <td>Well</td>
+
+                    <td>Node-link</td>
+
+                    <td>
+                        Node size directly encodes daily passenger volume.
+                    </td>
+
+                    <td>
+                        The largest nodes identify high-volume stations;
+                        some are network endpoints, showing that passenger
+                        volume and connectivity differ.
+                    </td>
+
+                </tr>
+
+                <tr>
+
+                    <td>5</td>
+
+                    <td>Well</td>
+
+                    <td>Node-link</td>
+
+                    <td>
+                        Link width encodes travel time, making long
+                        connections visually prominent.
+                    </td>
+
+                    <td>
+                        The longest connections include Station 7–Station
+                        31 (16 min) and Station 18–Station 34 (15 min).
+                    </td>
+
+                </tr>
+
+                <tr>
+
+                    <td>6</td>
+
+                    <td>Partially</td>
+
+                    <td>Both</td>
+
+                    <td>
+                        Link color identifies route type; the matrix helps
+                        compare repeated route types across district pairs.
+                    </td>
+
+                    <td>
+                        Route types are distributed across multiple areas
+                        rather than concentrated in one region; Express
+                        appears frequently on major cross-district
+                        connections.
+                    </td>
+
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </section>
+
+</main>
+
+<div id="tooltip"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+<script src="lab5.js"></script>
+
 </body>
+
 </html>
