@@ -1,28 +1,150 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lab 6</title>
-    <link rel="stylesheet" href="../css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>STATS 401 — Lab 6: GDP Hierarchy</title>
+  <link rel="stylesheet" href="../css/style.css">
 </head>
-<body>
+
+<body id="lab6">
+
+  <main class="page">
+
+    <header>
+      <h1>STATS 401</h1>
+      <p>Data Acquisition and Visualization</p>
+    </header>
+
     <nav class="lab-nav" aria-label="Lab navigation">
-        <a href="../index.html">Home</a>
-        <a href="../lab1/index.html">Lab 1</a>
-        <a href="../lab2/index.html">Lab 2</a>
-        <a href="../lab3/index.html">Lab 3</a>
-        <a href="../lab4/index.html">Lab 4</a>
-        <a href="../lab5/index.html">Lab 5</a>
-        <a href="../lab6/index.html">Lab 6</a>
-        <a href="../lab7/index.html">Lab 7</a>
-        <a href="../lab8/index.html">Lab 8</a>
-        <a href="../lab9/index.html">Lab 9</a>
-        <a href="../lab10/index.html">Lab 10</a>
+      <a href="../lab1/index.html">Lab 1</a>
+      <a href="../lab2/index.html">Lab 2</a>
+      <a href="../lab3/index.html">Lab 3</a>
+      <a href="../lab4/index.html">Lab 4</a>
+      <a href="../lab5/index.html">Lab 5</a>
+      <a href="../lab6/index.html">Lab 6</a>
+      <a href="../lab7/index.html">Lab 7</a>
+      <a href="../lab8/index.html">Lab 8</a>
+      <a href="../lab9/index.html">Lab 9</a>
+      <a href="../lab10/index.html">Lab 10</a>
     </nav>
-    <main>
-        <h1>Lab 6</h1>
-        <p>Lab 6 will be added here.</p>
-    </main>
+
+    <h1>Lab 6 — GDP Hierarchy</h1>
+
+    <p class="note">
+      Comparing two treemap tiling strategies for the same
+      continent → area → country hierarchy.
+    </p>
+
+    <section class="intro">
+
+      <div>
+        <h2>How to read the treemaps</h2>
+
+        <p>
+          Each rectangle represents a country. Rectangle area encodes GDP,
+          so larger rectangles correspond to larger GDP values. Color encodes
+          GDP status. Hover over a country for detailed information.
+        </p>
+
+        <p>
+          Some countries have relatively small GDP values and therefore appear
+          as very small rectangles in the overall view. In the second treemap,
+          you can use the mouse wheel to zoom in and drag the visualization
+          to explore smaller regions. Hover over a country after zooming to
+          view its detailed information.
+        </p>
+      </div>
+
+      <div class="legend" aria-label="GDP status legend">
+        <span class="legend-title">GDP status</span>
+        <span><i class="swatch increase"></i> Increase</span>
+        <span><i class="swatch unchanged"></i> Unchanged</span>
+        <span><i class="swatch decrease"></i> Decrease</span>
+      </div>
+
+    </section>
+
+    <section class="chart-section">
+
+      <div class="chart-header">
+        <div>
+          <h2>Treemap 1 — Squarify</h2>
+
+          <p>
+            Uses <code>d3.treemapSquarify</code> to favor more compact rectangles.
+          </p>
+        </div>
+      </div>
+
+      <div id="treemap-squarify" class="chart"></div>
+
+    </section>
+
+    <section class="chart-section">
+
+      <div class="chart-header">
+        <div>
+          <h2>Treemap 2 — Slice &amp; Dice</h2>
+
+          <p>
+            Uses <code>d3.treemapSliceDice</code> to alternate subdivision
+            direction by depth.
+          </p>
+
+          <p>
+            <strong>Interactive:</strong>
+            Scroll to zoom in or out, drag to move around the treemap,
+            and hover over a country to see its detailed GDP information.
+            Zooming makes smaller countries and regions easier to inspect.
+          </p>
+        </div>
+      </div>
+
+      <div id="treemap-slicedice" class="chart"></div>
+
+    </section>
+
+    <section class="design">
+
+      <h2>Design Description</h2>
+
+      <p>
+        I use rectangle area to encode GDP because GDP is quantitative and
+        the part-to-whole structure of a treemap makes large differences
+        visible at a glance. Color encodes GDP status because Increase,
+        Unchanged, and Decrease are categorical states; a consistent
+        three-category legend makes the comparison between the two treemaps
+        straightforward.
+      </p>
+
+      <p>
+        I keep the same hierarchy, data values, colors, labels, and tooltip
+        behavior in both views, changing only the tiling strategy. The
+        Squarify layout generally produces more compact rectangles, which
+        makes country labels and individual regions easier to inspect when
+        rectangle sizes vary substantially. Slice-and-Dice produces more
+        directional and elongated partitions, making hierarchical grouping
+        and the depth structure more visually apparent but sometimes making
+        individual countries harder to compare.
+      </p>
+
+      <p>
+        Because some countries have relatively small GDP values, their
+        rectangles can be difficult to inspect in the full Slice-and-Dice
+        view. The zoom and pan interaction allows users to explore these
+        smaller regions in greater detail while preserving the original
+        GDP-based area encoding.
+      </p>
+
+    </section>
+
+  </main>
+
+  <div id="tooltip" class="tooltip"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+  <script src="lab6.js"></script>
+
 </body>
 </html>
