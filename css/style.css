@@ -223,10 +223,9 @@ a {
     background: #e53935;
 }
 
-/* ============================================================
+/* 
    Lab 7 — Animated Temporal Commercial Network
-   (append to css/style.css)
-   ============================================================ */
+ */
 
 #lab7 .network-controls {
     display: flex;
