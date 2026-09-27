@@ -1,0 +1,248 @@
+
+======================================================================
+CLUSTER 0  (82 passages)
+top terms: media, digital, course, art, students, cultural, arts, film, documentary, learn, sound, video
+chapters: Part 10: Majors and Courses (82)
+sections: Course Descriptions (77), Majors (listed in alphabetical order) (5)
+
+  [p0776 | Course Descriptions | p.332]
+  For students of media, it is vital to have some skills in media production or art practice. This course will introduce students to some practical aspects of media and the arts. These might include: creative camera control and lighting; how to code a web page; how to write a news story; how to make a documentary, how to
+
+  [p0726 | Course Descriptions | p.318]
+  This course introduces the theory, method, and practice of digital storytelling. Students will learn to analyze digital storytelling in various media forms and modes of production, and evaluate the cultural impact of new media narratives. They will explore digital storytelling affordances including text, video, audio, 
+
+  [p0383 | Majors (listed in alphabetical order) | p.181]
+  Understanding of media and the arts is foundational to the concept of interdisciplinarity that is the basis for a liberal arts education at Duke Kunshan University. On the one hand, exposure to the arts provides for the complete student: a well-rounded individual who is able to see the world in both its breadth and dep
+
+  [p0382 | Majors (listed in alphabetical order) | p.181]
+  The Media and Arts major captures the breadth of both media as a communications process and art as creative and documentary expressions. By exploring the history of media and arts as well as emerging technologies and cultures, students in this major will gain a depth of understanding that is broadly applicable to futur
+
+  [p0660 | Course Descriptions | p.298]
+  Art has been a part of every society since recorded history. How have the arts told stories about civilizations, ethnicities, communities and peoples? How have the arts evolved and circulated across the globe? The arts provide vital narratives in our understandings of each other as our cultures have both clashed and sh
+
+  [p0503 | Course Descriptions | p.251]
+  This course is an anthropological examination of 'new media' - their varied forms and histories, how they are used and understood, and their meanings and effects within different communities of users. We will chart a number of technologies deemed 'new' in their day and the social meanings and communities that such tech
+
+  [p0758 | Course Descriptions | p.328]
+  Media Studies and the Arts explores the cultural significance of the media in the contemporary world. It is a cross-disciplinary field that draws on communication studies, art history, literature, sociology, psychology and philosophy, among others. Particular attention is paid to new media and digital media including t
+
+  [p0663 | Course Descriptions | p.299]
+  This course will aid students in their efforts to make sense of how communications processes have mediated and shaped our interactions with each other as well as our understanding of the world. It does so by examining specific instances of media communications in a number of key cases observed in world history and by s
+
+
+======================================================================
+CLUSTER 1  (130 passages)
+top terms: duke, university, kunshan, duke kunshan, kunshan university, students, credit, credits, dku, courses, student, education
+chapters: Part 6: Academic Procedures and Information (44), Part 8: Career Services, Study Away, and Research Opportunities (19), Part 3: The Curriculum (16), Part 1: General Information (14)
+sections: Office of Global Education and Study Away (13), Degree Requirements (12), Entrance Credit and Placement (8), Course Descriptions (7), Transfer of Work Taken Elsewhere (7)
+
+  [p0125 | Transfer of Work Taken Elsewhere | p.41]
+  Approval forms for Duke Kunshan University students taking courses at institutions other than Duke Kunshan University and Duke University may be obtained online or from the Office of Global Education. Students wishing to transfer credit for study at another accredited college or university while on leave, on a DKU-appr
+
+  [p0123 | Transfer of Work Taken Elsewhere | p.40]
+  All coursework undertaken after matriculation as a full-time degree-seeking student at Duke Kunshan University must be at another accredited four-year institution in the United States or similarly accredited institution abroad and with a liberal arts and general education curriculum. Duke Kunshan University students ma
+
+  [p0055 | Degree Requirements | p.24]
+  A total of 156 (Class of 2022) or 158 (Class of 2023 and beyond) Duke Kunshan University credits is required for Chinese students to graduate and obtain the degrees, including: (1) 136 Duke Kunshan University credits required for graduation with a Duke University bachelor’s degree, inclusive of 34 Duke Kunshan Universi
+
+  [p0054 | Degree Requirements | p.24]
+  A total of 136 Duke Kunshan University credits is required for international students to graduate and obtain the degrees, inclusive of 34 Duke Kunshan University credits earned through courses taught or co-taught by Duke faculty (i.e. 8.5 courses; 1 course credit at Duke is equivalent to 4 Duke Kunshan University credi
+
+  [p0111 | Entrance Credit and Placement | p.38]
+  First-year Duke Kunshan students may submit for evaluation college courses taken at another accredited college or university after commencement of the student’s junior year of high school. (For details concerning transferring this work, see the section “Work Taken During High School.”) Prematriculation credits awarded 
+
+  [p0297 | Office of Global Education and Study Away | p.75]
+  Students may transfer up to a maximum of 40 credits taken outside of the Duke Kunshan University campus, including advanced placement credits. A maximum of 8 credits may be from coursework undertaken while on voluntary leave of absence for personal or medical reasons. No credit will be accepted for coursework taken whi
+
+  [p0007 | Who We Are | p.11]
+  Duke Kunshan University is a Sino-American partnership of Duke University, Wuhan University and Kunshan city in Jiangsu province to create a world-class liberal arts and research university offering a range of academic programs for students from China and throughout the world. A nonprofit, joint-venture institution, Du
+
+  [p0053 | Degree Requirements | p.24]
+  Duke Kunshan University adheres to the academic standards upheld by Duke University and the relevant requirements for graduation and degree awarding by the education administration authorities of China. All undergraduate students must meet the requirements of both Duke University and Duke Kunshan University before they
+
+
+======================================================================
+CLUSTER 2  (124 passages)
+top terms: environmental, course, health, human, policy, economic, include, social, models, case, climate, change
+chapters: Part 10: Majors and Courses (122), Part 1: General Information (1), Part 6: Academic Procedures and Information (1)
+sections: Course Descriptions (109), Majors (listed in alphabetical order) (13), Part 1: General Information (1), Academic Integrity (1)
+
+  [p0558 | Course Descriptions | p.268]
+  An introduction to the study of environmental sciences and policy through exploration of basic environmental principles in the life, physical, and social sciences. Emphasis on understanding how the atmosphere, hydrosphere, lithosphere, cryosphere, and biosphere function, and how these spheres interact with human consum
+
+  [p0560 | Course Descriptions | p.268]
+  An examination of the interactions between the natural and the social systems as they relate to the environment. Focuses on ecological and earth system cycles, processes, and fundamental relationships, the environmental impact of human-induced change at the local, regional, and global levels. The role of technology and
+
+  [p0564 | Course Descriptions | p.269]
+  This course examines problems associated with the interaction of humans with their environment. This course mainly focuses on various global environmental concerns, such as climate change, biodiversity, environmental pollution, and natural resources. This course explores case studies illustrating specific problems in d
+
+  [p0909 | Course Descriptions | p.368]
+  Governments constantly face questions such as: How do we address deforestation? How can we slow down climate change? How can we make food safer? This course teaches a systematic way of dealing with these questions, namely policy analysis. This technique enables students to identify, examine, and evaluate options to imp
+
+  [p0536 | Course Descriptions | p.260]
+  The role of the environment in the theory and practice of economics. Topics include ways in which markets fail to efficiently allocate resources in the presence of pollution, along with the array of policies regulators used to correct those failures; the empirical techniques used by economists to put values on environm
+
+  [p0568 | Course Descriptions | p.270]
+  Course will focus on the major challenges developing countries face in balancing environmental management and economic growth. Class will use economic analyses to examine these challenges and to devise policy solutions, especially given that developing countries often have weak institutional capacity and fewer financia
+
+  [p0401 | Course Descriptions | p.219]
+  This course is a team-taught, question-driven introduction to the certificate and the fundamentals of how humans make decisions. The primary goal is to provide hands-on and problem-focused instruction designed to connect students to research as quickly as possible. Substantive topics include behavioral and experimental
+
+  [p0563 | Course Descriptions | p.269]
+  This course is an introduction to the theories and practices of sustainability. Sustainability is the art of living well, within the ecological limits of a finite planet. Sustainable development aims to balance economic efficiency, environmental compatibility and social equity. Students will learn and apply various con
+
+
+======================================================================
+CLUSTER 3  (165 passages)
+top terms: term, grade, student, academic, students, courses, credits, course, credit, requirements, undergraduate, classes
+chapters: Part 6: Academic Procedures and Information (108), Part 5: Financial Information (14), Part 3: The Curriculum (9), Part 10: Majors and Courses (9)
+sections: Grading and Grade Requirements (15), Undergraduate Course Load (12), Academic Warning, Probation, and Suspension for Students in the Classes of 2022-2024 (12), Academic Warning, Probation, and Suspension for Students in the Class of 2025 and Beyond (10), Part 11: Academic Calendar 2021-22 (9)
+
+  [p0225 | Changes in Status | p.61]
+  Students who wish to withdraw from the university must give official notification to the Office of Undergraduate Studies. Notification must be received prior to the beginning of classes in any term, or tuition and housing fee will be refunded only partially (See section on Refund in Part 5). For students withdrawing on
+
+  [p0192 | Grading and Grade Requirements | p.54]
+  First-year students in the first session of their first term must be enrolled in no less than a normal course load of 6 credits to be approved to change the grading basis of a course to CR/NC. In all subsequent sessions, a student must be enrolled in no less than a normal course load of 8 credits to be approved to chan
+
+  [p0197 | Progress toward Degree | p.56]
+  Students must achieve a satisfactory record of academic performance each term and make satisfactory progress toward graduation each year. Progress is assessed primarily by a student’s grade-point average. (See also the section on Academic Warning, Probation, and Suspension relevant for your class year.) However, other 
+
+  [p0131 | Registration | p.42]
+  Withdrawing from a course differs from dropping a course. Students drop the course themselves during the Drop/Add period, and the course does not appear on their official transcript. To withdraw from a course after the Drop/Add period, the student must obtain permission from his or her academic advisor. After the Drop/
+
+  [p0135 | Undergraduate Course Load | p.43]
+  Students are reminded that it is their responsibility to be certain that their course load conforms with academic requirements. In fall and spring terms, the normal course load is 16-20 credits (8-10 credits in each 7-week session). In addition, students may enroll in up to one credit of PE courses without special perm
+
+  [p0184 | Grading and Grade Requirements | p.53]
+  In the fall or spring term, a student must be enrolled in no less than a normal course load of 16 credits to be approved to change the grading basis of a course to CR/NC. In order to receive a CR (Credit), a student must have received a grade of Cor better in the course. A grade of D+ or below will be reflected on the 
+
+  [p0148 | Undergraduate Course Load | p.45]
+  • will be ineligible for the Dean’s list and the Dean’s List with Distinction during that term; • may not withdraw from a course during the underload term; • must pass at least 12 course credits in order to meet term continuation requirements; and • may need to make up credits (e.g., in summer or in future terms) to st
+
+  [p0202 | Progress toward Degree | p.57]
+  Students who receive an academic warning for failing to meet the term credit requirements may make up additional credits by enrolling in 20 credits in a subsequent term, enrolling in an overload once a positive academic trajectory has been established, or completing summer coursework at Duke or on another approved stud
+
+
+======================================================================
+CLUSTER 4  (93 passages)
+top terms: chinese, china, course, students, skills, social, cultural, texts, world, culture, history, issues
+chapters: Part 10: Majors and Courses (84), Part 6: Academic Procedures and Information (3), Part 5: Financial Information (2), Part 9: Student Affairs and Campus Life (2)
+sections: Course Descriptions (80), Majors (listed in alphabetical order) (4), Entrance Credit and Placement (3), Estimated Expenses (2), Partners (1)
+
+  [p0460 | Course Descriptions | p.239]
+  In this course students will learn about social and cultural issues in China through study of authentic texts in Chinese and authentic media resources (e.g. television programs, documentaries, etc.). Oral skills will be built through discussion of these topics, and students will also be expected to practice their spoke
+
+  [p0458 | Course Descriptions | p.238]
+  This course reinforces what students have learned in the Intermediate Chinese courses, and continues to expand and refine their skills in listening, speaking, reading, and writing by learning a variety of texts that are written with advanced vocabulary (including academic vocabulary and vocabulary denoting abstract con
+
+  [p0461 | Course Descriptions | p.239]
+  The Advanced Chinese course sequence is designed to build students' ability to read authentic texts in Chinese, such as newspaper texts; it also builds students' ability to watch and listen to authentic media programs (e.g. television programs, documentaries, etc.). Students will be introduced to the following themes: 
+
+  [p0631 | Course Descriptions | p.292]
+  The course introduces the foundations of modern China from the Song Dynasty up through the late imperial period (about 1800 CE to 1911). It will cover the major historical events, developments, and trends -- social, political, economic, philosophical, literary, cultural, multi-ethnic, and China’s relations with the oth
+
+  [p0605 | Course Descriptions | p.284]
+  This course considers a variety of literary texts from the perspective of the nexus of cultures and societies in Asia, primarily on modern and contemporary China. This course exposes students to cultural and literary expressions and representations of modern China from the beginning of the 20th century to the present. 
+
+  [p0457 | Course Descriptions | p.238]
+  This course, a continuation of CHINESE 231, is designed to help Chinese heritage students continue improving their formal and informal discourse in speaking and writing. This course aims to further expand and refine students’ language skills by studying a variety of texts that are written with advanced intermediate-lev
+
+  [p0475 | Course Descriptions | p.243]
+  This course reviews the history in which how China, as an ancient civilization, has revived from the fallen state in modern times to a mighty power in today’s world, helping students to understand and perceive Chinese society along with its changing trends with longer-term vision, the connotation of the Chinese nationa
+
+  [p0369 | Majors (listed in alphabetical order) | p.141]
+  This major prepares students to engage, work with, and understand China in the twenty-first century. It provides students with opportunities to gain deep historical knowledge of China in the ancient, pre-modern, and modern periods, while focusing on the place and impact of China in the world—past, present, and future. 
+
+
+======================================================================
+CLUSTER 5  (146 passages)
+top terms: course, science, data, students, systems, materials, physics, topics, properties, applications, include, techniques
+chapters: Part 10: Majors and Courses (145), Part 9: Student Affairs and Campus Life (1)
+sections: Course Descriptions (123), Majors (listed in alphabetical order) (22), Athletics & University Sports (1)
+
+  [p0445 | Course Descriptions | p.233]
+  The course introduces students to core concepts in physical chemistry including quantum chemistry, molecular structure, molecular spectroscopy, thermodynamics, and kinetics. The course also includes laboratory experiments illustrative of these topics, as well as instruction and practice in writing the laboratory notebo
+
+  [p0486 | Course Descriptions | p.246]
+  This course focuses on the following: computer structure, assembly language, instruction execution, addressing techniques, and digital representation of data. Computer system organization, logic design, microprogramming, cache and memory systems, and input/output interfaces are also central.
+
+  [p0443 | Course Descriptions | p.232]
+  This course is the continuation of the Integrated Science - Chemistry continuum, including intermolecular forces, states of matter, aqueous ionic equilibrium and solubility equilibrium, dynamics (kinetics and thermodynamics), electrochemistry, and nuclear chemistry. Lab experiments verifying related theories and utiliz
+
+  [p0740 | Course Descriptions | p.322]
+  Main topics of this course include vectors and vector functions, the geometry of higher dimensional Euclidean spaces, partial derivatives, multiple integrals, line integrals, vector fields, Green’s Theorem, Stokes’ Theorem and the Divergence Theorem.
+
+  [p0827 | Course Descriptions | p.347]
+  This course is the second of a series of two general physics courses that are highly interactive and illustrated with applications from different perspective of sciences and everyday life. Core topics: electric fields, circuits, magnetic fields, Faraday's law, Maxwell's equations, electromagnetic waves, properties of l
+
+  [p0825 | Course Descriptions | p.346]
+  This course is about how to view the world from the perspective of classical mechanics, based on an understanding of the core concepts and theoretical laws. As a science foundation course, it helps students appreciate the elegant simplicity of the universal laws governing the complex systems surrounding us, and it teac
+
+  [p0484 | Course Descriptions | p.246]
+  This course focuses on the following: mathematical notations, logic, and proof; linear and matrix algebra; graphs, digraphs, trees, representations, and algorithms; counting, permutations, combinations, discrete probability, Markov models; advanced topics from algebraic structures, geometric structures, combinatorial o
+
+  [p0967 | Course Descriptions | p.382]
+  This course to explore how to extend statistical techniques learned in earlier classes and how to apply them to real-world problems. The course starts with the standard linear model and then
+
+
+======================================================================
+CLUSTER 6  (173 passages)
+top terms: political, course, world, american, social, global, religious, cultural, historical, war, history, examines
+chapters: Part 10: Majors and Courses (173)
+sections: Course Descriptions (164), Majors (listed in alphabetical order) (9)
+
+  [p0675 | Course Descriptions | p.301]
+  This course takes a comparative historical approach to contemporary global issues in various temporal and geographical contexts. Students will focus on issues that emerged in the modern era and may include such topics as terrorism and national security, environmental protection and degradation, resource distribution an
+
+  [p0638 | Course Descriptions | p.293]
+  This course takes a comparative historical approach to contemporary global issues in various temporal and geographical contexts. Students will focus on issues that emerged in the modern era and may include such topics as terrorism and national security, environmental protection and
+
+  [p0651 | Course Descriptions | p.296]
+  This course offers a survey of the history of the world, by which is meant a historical overview of major processes and interactions in the development of human society since its early development some 60,000 years ago, going beyond the fundamental questions and concerns of area studies (such as East Asian studies, Sou
+
+  [p0639 | Course Descriptions | p.294]
+  degradation, resource distribution and trade, health and welfare, and cultural and religious diversity. Students explore the nature of historical change and continuity and will apply historical methods of research and analysis as they investigate the formation and development of particular global issues. The specific c
+
+  [p0716 | Course Descriptions | p.316]
+  What does it mean to be a global citizen? What can literature reveal about the social, cultural, and ethical dimensions of an increasingly interconnected world? What modes of critique, formations of belonging, and possibilities for conceptualizing the world —and one’s place in it— does of literature offer? Through a va
+
+  [p0879 | Course Descriptions | p.360]
+  From the framing of the Constitution to the present day, the US has had unique political institutions and political culture, which have long arrested the minds of political theorists, philosophers, writers and academics. Drawing on multiple disciplines, such as sociology, history, philosophy, and literature, this cours
+
+  [p0373 | Majors (listed in alphabetical order) | p.152]
+  Focusing on the practical and theoretical issues arising from cross-cultural encounters around the world, Cultural Studies examines conventional cultural products (literature, history, film, visual art, music, social media, new technology, etc.) and also their broader political and social contexts (colonialism, moderni
+
+  [p0368 | Majors (listed in alphabetical order) | p.132]
+  This interdisciplinary major, drawing from fields such as philosophy, political theory, history, literature, religion, and the social and natural sciences, seeks to provide students with the specific expertise that is needed to address issues such as global health, pollution and the environment or regulation of corpora
+
+
+======================================================================
+CLUSTER 7  (109 passages)
+top terms: students, course, academic, seminar, language, student, community, research, skills, writing, major, interdisciplinary
+chapters: Part 10: Majors and Courses (59), Part 3: The Curriculum (15), Part 9: Student Affairs and Campus Life (14), Part 7: Academic Advising and Support (10)
+sections: Course Descriptions (54), Degree Requirements (10), Majors (listed in alphabetical order) (5), Academic Advising (4), Athletics & University Sports (3)
+
+  [p0526 | Course Descriptions | p.257]
+  have gained in different disciplines. Students will re-connect with the broader community of faculty and students in their major and further develop their capacities to translate between their areas of expertise and the larger questions and issues that apply across a variety of disciplines. The seminar will foster the 
+
+  [p0527 | Course Descriptions | p.257]
+  This seminar is a core component of the interdisciplinary major in Cultures and Movements. Students will apply to interdisciplinary topics the knowledge and methods of analysis that they have gained in different disciplines. Students will re-connect with the broader community of faculty and students in their major and 
+
+  [p0051 | Degree Requirements | p.23]
+  Signature Work calls for each student to identify one or more questions, problems, or issues that are of particular importance to him or herself and to society, and to investigate these through a combination of curricular and related co-curricular experiences. Students develop guided pathways, identify questions, and u
+
+  [p0999 | Course Descriptions | p.393]
+  This seminar is a core component of the interdisciplinary major in US Studies. Students will apply to interdisciplinary topics the knowledge and methods of analysis that they have gained in different disciplines. Students will re-connect with the broader community of faculty and students in their major and further deve
+
+  [p1000 | Course Descriptions | p.393]
+  This seminar is a core component of the interdisciplinary major in US Studies. Students will apply to interdisciplinary topics the knowledge and methods of analysis that they have gained in different disciplines. Students will re-connect with the broader community of faculty and students in their major and further deve
+
+  [p0796 | Course Descriptions | p.337]
+  ability to see their disciplinary knowledge from a wider perspective and to apply it flexibly. Specific topics will vary. This seminar is required for all juniors in the major. Other students may enroll with the permission of the instructor.
+
+  [p0690 | Course Descriptions | p.307]
+  This seminar is a core component of the interdisciplinary major in Institutions and Governance. Students will apply to interdisciplinary topics the knowledge and methods of analysis that they have gained in different disciplines. Students will re-connect with the broader community of faculty and students in their major
+
+  [p0030 | Key Components | p.17]
+  • Common Core courses required of all students focus on big questions and critical challenges. Students take one per year for three years. • Language courses required in English, Chinese or potentially a third language. • Majors that have interdisciplinary and disciplinary components, with the former serving as the ent
+

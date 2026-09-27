@@ -423,3 +423,379 @@ a {
     margin-bottom: 4px;
     color: #334155;
 }
+
+/* ============================================================
+   Lab 8 — DKU Bulletin semantic explorer
+   (append to css/style.css)
+   ============================================================ */
+
+#lab8 h3 {
+    font-size: 16px;
+    color: #334155;
+    margin-bottom: 6px;
+}
+
+#lab8 .corpus-stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    list-style: none;
+    padding: 0;
+    margin: 14px 0 0;
+}
+
+#lab8 .corpus-stats li {
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    padding: 8px 14px;
+    font-size: 14px;
+    color: #475569;
+}
+
+#lab8 .overview-grid {
+    display: grid;
+    grid-template-columns: minmax(320px, 1fr) minmax(340px, 1.15fr);
+    gap: 26px;
+    align-items: start;
+}
+
+#lab8 .plain-svg,
+#lab8 .map-svg,
+#lab8 .matrix-svg {
+    display: block;
+    width: 100%;
+    height: auto;
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+}
+
+#lab8 .matrix-svg {
+    width: auto;
+    max-width: 100%;
+}
+
+#lab8 .chapter-bar {
+    fill: #7e9dc4;
+}
+
+#lab8 .chapter-bar:hover {
+    fill: #2457a6;
+}
+
+#lab8 .bar-value {
+    font-size: 11px;
+    fill: #475569;
+}
+
+/* ---------- corpus term table ---------- */
+
+#lab8 .scroll-table {
+    max-height: 300px;
+    overflow-y: auto;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    background: white;
+}
+
+#lab8 .scroll-table table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+}
+
+#lab8 .scroll-table th {
+    position: sticky;
+    top: 0;
+    background: #f1f5f9;
+    text-align: left;
+    padding: 7px 9px;
+    border-bottom: 1px solid #e2e8f0;
+    white-space: nowrap;
+}
+
+#lab8 .scroll-table td {
+    padding: 6px 9px;
+    border-bottom: 1px solid #f1f5f9;
+    vertical-align: top;
+}
+
+#lab8 .scroll-table .sec-name {
+    max-width: 190px;
+}
+
+#lab8 .scroll-table .terms {
+    color: #64748b;
+    max-width: 260px;
+}
+
+/* ---------- map controls ---------- */
+
+#lab8 .map-controls,
+#lab8 .matrix-controls {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+    margin: 14px 0;
+}
+
+#lab8 .map-controls label,
+#lab8 .matrix-controls label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 14px;
+    color: #334155;
+}
+
+#lab8 #search {
+    padding: 7px 11px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    font-size: 14px;
+    min-width: 230px;
+}
+
+#lab8 select {
+    padding: 6px 8px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    font-size: 14px;
+    max-width: 260px;
+}
+
+#lab8 button {
+    border: 1px solid #cbd5e1;
+    background: #f8fafc;
+    color: #334155;
+    padding: 7px 13px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+#lab8 button:hover {
+    background: #e2e8f0;
+}
+
+#lab8 .status {
+    font-size: 13px;
+    color: #64748b;
+}
+
+/* ---------- map + detail panel ---------- */
+
+#lab8 .map-layout {
+    display: grid;
+    grid-template-columns: minmax(420px, 1.6fr) minmax(280px, 1fr);
+    gap: 18px;
+    align-items: start;
+}
+
+#lab8 .passage {
+    cursor: pointer;
+}
+
+#lab8 .detail-panel {
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    padding: 16px;
+    max-height: 620px;
+    overflow-y: auto;
+    font-size: 14px;
+}
+
+#lab8 .detail-panel .placeholder {
+    color: #94a3b8;
+}
+
+#lab8 .detail-head {
+    border-left: 4px solid #ccc;
+    padding-left: 11px;
+    margin-bottom: 12px;
+}
+
+#lab8 .detail-head h3 {
+    margin: 0 0 4px;
+}
+
+#lab8 .detail-meta {
+    font-size: 12.5px;
+    color: #64748b;
+    margin: 0 0 6px;
+    line-height: 1.5;
+}
+
+#lab8 .detail-topic {
+    margin: 0;
+    font-size: 13px;
+    color: #334155;
+}
+
+#lab8 .dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+#lab8 .detail-text {
+    font-size: 13.5px;
+    line-height: 1.65;
+    color: #1e293b;
+}
+
+#lab8 .detail-panel h4 {
+    margin: 16px 0 6px;
+    font-size: 14px;
+    color: #334155;
+}
+
+#lab8 .nn-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#lab8 .nn-list li {
+    border-top: 1px solid #f1f5f9;
+    padding: 8px 0;
+}
+
+#lab8 .nn-link {
+    padding: 0;
+    border: none;
+    background: none;
+    color: #2457a6;
+    font-size: 13.5px;
+    font-weight: 600;
+    text-align: left;
+    cursor: pointer;
+}
+
+#lab8 .nn-link:hover {
+    background: none;
+    text-decoration: underline;
+}
+
+#lab8 .nn-meta {
+    font-size: 12px;
+    color: #94a3b8;
+}
+
+#lab8 .nn-text {
+    display: block;
+    font-size: 12.5px;
+    color: #64748b;
+    margin-top: 2px;
+    line-height: 1.5;
+}
+
+/* ---------- legends ---------- */
+
+#lab8 .legend-row {
+    display: grid;
+    grid-template-columns: minmax(260px, 1fr) minmax(300px, 1.3fr);
+    gap: 26px;
+    margin-top: 18px;
+}
+
+#lab8 .legend-list {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+#lab8 .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13.5px;
+    cursor: pointer;
+}
+
+#lab8 .legend-item:hover {
+    color: #2457a6;
+}
+
+#lab8 .legend-swatch {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    border-radius: 3px;
+    flex: none;
+}
+
+#lab8 .encoding-list {
+    margin: 0;
+    padding-left: 18px;
+    font-size: 13.5px;
+    line-height: 1.6;
+    color: #475569;
+}
+
+/* ---------- matrix ---------- */
+
+#lab8 #matrix {
+    overflow-x: auto;
+}
+
+#lab8 .matrix-col {
+    font-size: 12px;
+    fill: #334155;
+    text-anchor: start;
+}
+
+#lab8 .matrix-row {
+    font-size: 12px;
+    fill: #334155;
+    text-anchor: end;
+}
+
+#lab8 .cell {
+    stroke: white;
+    stroke-width: 1px;
+    cursor: pointer;
+}
+
+#lab8 .cell:hover {
+    stroke: #1e293b;
+    stroke-width: 2px;
+}
+
+#lab8 .cell.selected {
+    stroke: #e8590c;
+    stroke-width: 2.5px;
+}
+
+#lab8 .cell-value {
+    font-size: 10.5px;
+    text-anchor: middle;
+    pointer-events: none;
+}
+
+/* ---------- findings ---------- */
+
+#lab8 .design h3 {
+    margin-top: 20px;
+    margin-bottom: 4px;
+}
+
+#lab8 .design code {
+    background: #f1f5f9;
+    padding: 1px 5px;
+    border-radius: 3px;
+    font-size: 13px;
+}
+
+@media (max-width: 900px) {
+    #lab8 .overview-grid,
+    #lab8 .map-layout,
+    #lab8 .legend-row {
+        grid-template-columns: 1fr;
+    }
+}

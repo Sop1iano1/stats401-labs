@@ -1,28 +1,296 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lab 8</title>
-    <link rel="stylesheet" href="../css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>STATS 401 — Lab 8: DKU Bulletin Semantic Explorer</title>
+  <link rel="stylesheet" href="../css/style.css">
 </head>
-<body>
+
+<body id="lab8">
+
+  <main class="page">
+
+    <header>
+      <h1>STATS 401</h1>
+      <p>Data Acquisition and Visualization</p>
+    </header>
+
     <nav class="lab-nav" aria-label="Lab navigation">
-        <a href="../index.html">Home</a>
-        <a href="../lab1/index.html">Lab 1</a>
-        <a href="../lab2/index.html">Lab 2</a>
-        <a href="../lab3/index.html">Lab 3</a>
-        <a href="../lab4/index.html">Lab 4</a>
-        <a href="../lab5/index.html">Lab 5</a>
-        <a href="../lab6/index.html">Lab 6</a>
-        <a href="../lab7/index.html">Lab 7</a>
-        <a href="../lab8/index.html">Lab 8</a>
-        <a href="../lab9/index.html">Lab 9</a>
-        <a href="../lab10/index.html">Lab 10</a>
+      <a href="../lab1/index.html">Lab 1</a>
+      <a href="../lab2/index.html">Lab 2</a>
+      <a href="../lab3/index.html">Lab 3</a>
+      <a href="../lab4/index.html">Lab 4</a>
+      <a href="../lab5/index.html">Lab 5</a>
+      <a href="../lab6/index.html">Lab 6</a>
+      <a href="../lab7/index.html">Lab 7</a>
+      <a href="../lab8/index.html">Lab 8</a>
+      <a href="../lab9/index.html">Lab 9</a>
+      <a href="../lab10/index.html">Lab 10</a>
     </nav>
-    <main>
-        <h1>Lab 8</h1>
-        <p>Lab 8 will be added here.</p>
-    </main>
+
+    <h1>Lab 8 — Exploring the DKU Undergraduate Bulletin</h1>
+
+    <p class="note">
+      Two coordinated views of a 400-page bulletin: where a passage sits in the
+      document, and what it means.
+    </p>
+
+    <!-- ============================ 1. corpus ============================ -->
+    <section class="intro">
+      <h2>1. Corpus Description</h2>
+      <p>
+        <strong>Source:</strong> <em>Bulletin of Duke Kunshan University
+        Undergraduate Instruction</em>, version 2021–22, published as a
+        400-page PDF by Duke Kunshan University
+        (<a href="https://dku-web-admissions.s3.cn-north-1.amazonaws.com.cn/dkumain/files/V2021-22_DKU_UG_Bulletin.pdf">official file</a>,
+        accessed September 2026).
+      </p>
+      <p>
+        The PDF was parsed with PyMuPDF. Each paragraph block became one
+        candidate passage, and the document's own bookmark outline (1,142
+        entries) was used to recover the chapter, section, and subsection that
+        each block belongs to, along with its page number. Running footers,
+        bare page numbers, the table of contents, and fragments shorter than 25
+        words were removed.
+      </p>
+      <ul class="corpus-stats">
+        <li><strong>1,107</strong> raw passages</li>
+        <li><strong>1,022</strong> after cleaning and de-duplication</li>
+        <li><strong>84 words</strong> average length (median 81, range 25–452)</li>
+        <li><strong>12</strong> chapters, <strong>81</strong> formal sections</li>
+      </ul>
+    </section>
+
+    <!-- ======================= 2. corpus overview ======================== -->
+    <section class="chart-section">
+      <h2>2. Corpus Overview</h2>
+
+      <div class="overview-grid">
+        <div>
+          <h3>Passages by chapter</h3>
+          <p class="note">
+            Part 10 (Majors and Courses) makes up two thirds of the bulletin.
+            Hover a bar for the average passage length.
+          </p>
+          <div id="chapter-chart" class="chart"></div>
+        </div>
+
+        <div>
+          <h3>Largest sections and their characteristic terms</h3>
+          <p class="note">
+            Top TF-IDF terms per formal section (sections with at least four
+            passages).
+          </p>
+          <div id="terms-table" class="scroll-table"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================== 3. semantic map ========================== -->
+    <section class="chart-section">
+      <h2>3. Semantic Embedding Map</h2>
+      <p class="note">
+        One point is one passage; nearby points are semantically similar.
+        Click a point for its details and its five nearest semantic neighbours.
+        Scroll to zoom, drag to pan.
+      </p>
+
+      <div class="map-controls">
+        <input type="text" id="search" placeholder="Search passage text…">
+        <label>Section
+          <select id="section-filter"><option value="">All sections</option></select>
+        </label>
+        <label>Topic
+          <select id="topic-filter"><option value="">All topics</option></select>
+        </label>
+        <label class="check">
+          <input type="checkbox" id="outlier-toggle">
+          Ring atypical passages
+        </label>
+        <button id="reset-view">Reset view</button>
+        <span id="map-status" class="status"></span>
+      </div>
+
+      <div class="map-layout">
+        <div id="map" class="chart"></div>
+        <aside id="detail-panel" class="detail-panel">
+          <p class="placeholder">Click a passage in the map to see its text,
+            its place in the bulletin, and its nearest semantic neighbours.</p>
+        </aside>
+      </div>
+
+      <div class="legend-row">
+        <div>
+          <h3>Semantic topic</h3>
+          <div id="legend-topic" class="legend-list"></div>
+        </div>
+        <div>
+          <h3>Other channels</h3>
+          <ul class="encoding-list">
+            <li><strong>Position</strong>: UMAP projection of the passage embedding.</li>
+            <li><strong>Point size</strong>: passage length in words.</li>
+            <li><strong>Dark ring</strong> (optional): passage is atypical for its own
+              formal section, i.e. far from that section's semantic centre.</li>
+            <li><strong>Orange links</strong>: the five nearest semantic neighbours of
+              the selected passage.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================= 4. the matrix =========================== -->
+    <section class="chart-section">
+      <h2>4. Topic × Bulletin Section Matrix</h2>
+      <p class="note">
+        How the semantic topics are distributed over the bulletin's formal
+        structure. Click a cell to highlight those passages in the map above;
+        clicking a passage in the map highlights its cell here.
+      </p>
+
+      <div class="matrix-controls">
+        <label>Rows
+          <select id="row-mode">
+            <option value="section">Formal section</option>
+            <option value="chapter">Chapter (Part)</option>
+          </select>
+        </label>
+        <label>Cells
+          <select id="value-mode">
+            <option value="count">Passage count</option>
+            <option value="share">Share of the row</option>
+          </select>
+        </label>
+        <button id="clear-cell">Clear selection</button>
+      </div>
+
+      <div id="matrix" class="chart"></div>
+    </section>
+
+    <!-- ========================== 5. findings ============================ -->
+    <section class="design">
+      <h2>5. Semantic Findings</h2>
+
+      <h3>What are the major semantic topics?</h3>
+      <p>
+        Eight topics emerged. Four are subject areas that come almost entirely
+        from the course catalogue: <em>History, Politics and Global Society</em>
+        (173 passages), <em>Natural Sciences, Math and Computing</em> (146),
+        <em>Environment, Health and Policy</em> (124), <em>China, Language and
+        Culture</em> (93), and <em>Media, Arts and Digital Culture</em> (82).
+        The others are administrative: <em>Grades, Course Load and Academic
+        Standing</em> (165), <em>Credits, Transfer and Study Away</em> (130),
+        and <em>Interdisciplinary Seminars and Student Support</em> (109). The
+        split reflects the bulletin's dual purpose as both a course catalogue
+        and a policy handbook.
+      </p>
+
+      <h3>Which topics appear across multiple formal sections?</h3>
+      <p>
+        The two administrative topics are the ones that cut across the
+        document. <em>Credits, Transfer and Study Away</em> appears in 11 of
+        the 12 chapters and 53 different sections, and <em>Grades, Course Load
+        and Academic Standing</em> in 8 chapters and 40 sections. The subject
+        topics are the opposite: <em>History, Politics and Global Society</em>
+        and <em>Media, Arts and Digital Culture</em> each occur in a single
+        chapter and essentially two sections. Rules about credit are restated
+        wherever they are relevant, while subject matter stays where it is
+        filed.
+      </p>
+
+      <h3>Which formal sections are the most semantically diverse?</h3>
+      <p>
+        Measured by the entropy of each section's topic distribution,
+        <em>Course Descriptions</em> is the most diverse (all eight topics,
+        entropy 2.59 bits), followed by <em>Majors</em> (seven topics, 2.48) —
+        expected, since both are containers for every discipline.
+        More informative are the mid-sized policy sections:
+        <em>Degree Requirements</em> (1.57), <em>Estimated Expenses</em>
+        (1.46), and <em>Entrance Credit and Placement</em> (1.41) each mix
+        three topics. At the other extreme, both <em>Academic Warning,
+        Probation, and Suspension</em> sections and the <em>Academic
+        Calendar</em> fall entirely within one topic.
+      </p>
+
+      <h3>Which passages from different sections are semantically similar?</h3>
+      <p>
+        The strongest cross-section pairs are near-duplicates: the
+        probation rules for the Classes of 2022–2024 and for the Class of 2025
+        and beyond contain passages with cosine similarity above 0.99
+        (e.g. p0211 on page 58 and p0223 on page 60). More interesting are the
+        cross-<em>chapter</em> pairs, all about credit: <em>Degree
+        Requirements</em> in Part 3 and <em>Progress toward Degree</em> in Part
+        6 (0.90); <em>Transfer of Work Taken Elsewhere</em> in Part 6 and the
+        <em>Office of Global Education and Study Away</em> in Part 8 (0.88).
+        The 40-credit transfer cap is stated in both places.
+      </p>
+
+      <h3>Which passages are unusual relative to their formal section?</h3>
+      <p>
+        Ignoring the catch-all <em>Course Descriptions</em> section, the most
+        atypical passages sit in <em>Majors</em>: the Data Science description
+        on page 119 and the US Studies description on page 207 are each pulled
+        toward a subject cluster far from the average major description. Within
+        <em>Undergraduate Course Load</em>, the passage on medical problems
+        (page 44) is the outlier, because it is about student support rather
+        than credit limits.
+      </p>
+
+      <h3>Where does "credit" occur?</h3>
+      <p>
+        Searching <code>credit</code> highlights 120 passages, and they do not
+        form one semantic region. Roughly half fall under <em>Grades, Course
+        Load and Academic Standing</em> (57) and half under <em>Credits,
+        Transfer and Study Away</em> (49), with a scattering in the course
+        topics. <code>graduation</code> (29 passages) splits across the same
+        two topics, while <code>registration</code> (9) is concentrated in the
+        first. The word is therefore a poor search handle on its own: it means
+        a grading unit in one region of the map and an external transfer
+        allowance in another.
+      </p>
+
+      <h2>6. Design Description</h2>
+      <p>
+        Each cleaned passage was encoded with the sentence-transformers model
+        <code>all-MiniLM-L6-v2</code>, producing 384-dimensional normalised
+        vectors. Those vectors were projected to two dimensions with UMAP
+        (<code>n_neighbors=15</code>, <code>min_dist=0.15</code>, cosine
+        metric, <code>random_state=401</code>) for display only. Clustering was
+        run on the full 384-dimensional vectors rather than the projection,
+        using k-means with k = 8 and the same seed. Each cluster was labelled
+        by reading its eight most central passages together with its top
+        TF-IDF terms, so the labels come from the corpus rather than from a
+        predefined scheme. Cosine similarity over the same vectors supplied
+        each passage's five nearest neighbours and an outlier score, defined as
+        the distance from a passage to the centroid of its own formal section.
+      </p>
+      <p>
+        In the map, position encodes the embedding, colour encodes topic, point
+        size encodes passage length, and an optional ring marks passages that
+        are atypical for their section. UMAP axes carry no independent meaning,
+        so they are left unlabelled; only proximity is interpreted. The matrix
+        answers a question the map cannot: how a topic is distributed over the
+        formal structure. Rows are formal sections, columns are topics, and
+        cell darkness encodes either the count or the row share.
+      </p>
+      <p>
+        Coordination is what makes the pair useful. Clicking a matrix cell
+        isolates the passages of one section-and-topic combination in the map,
+        which is how the duplicated probation policies became visible. Clicking
+        a point highlights its cell and draws links to its nearest neighbours,
+        which is how passages about the credit transfer cap in three different
+        chapters were found. Search and the two filters act on both views at
+        once, so a query such as <code>credit</code> can be read semantically
+        in the map and structurally in the matrix at the same time.
+      </p>
+    </section>
+
+  </main>
+
+  <div id="tooltip" class="tooltip"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+  <script src="lab8.js"></script>
+
 </body>
 </html>
