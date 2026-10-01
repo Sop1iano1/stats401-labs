@@ -1,28 +1,261 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lab 9</title>
-    <link rel="stylesheet" href="../css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>STATS 401 — Lab 9: Geospatial Visualization</title>
+  <link rel="stylesheet" href="../css/style.css">
 </head>
-<body>
+
+<body id="lab9">
+
+  <main class="page">
+
+    <header>
+      <h1>STATS 401</h1>
+      <p>Data Acquisition and Visualization</p>
+    </header>
+
     <nav class="lab-nav" aria-label="Lab navigation">
-        <a href="../index.html">Home</a>
-        <a href="../lab1/index.html">Lab 1</a>
-        <a href="../lab2/index.html">Lab 2</a>
-        <a href="../lab3/index.html">Lab 3</a>
-        <a href="../lab4/index.html">Lab 4</a>
-        <a href="../lab5/index.html">Lab 5</a>
-        <a href="../lab6/index.html">Lab 6</a>
-        <a href="../lab7/index.html">Lab 7</a>
-        <a href="../lab8/index.html">Lab 8</a>
-        <a href="../lab9/index.html">Lab 9</a>
-        <a href="../lab10/index.html">Lab 10</a>
+      <a href="../lab1/index.html">Lab 1</a>
+      <a href="../lab2/index.html">Lab 2</a>
+      <a href="../lab3/index.html">Lab 3</a>
+      <a href="../lab4/index.html">Lab 4</a>
+      <a href="../lab5/index.html">Lab 5</a>
+      <a href="../lab6/index.html">Lab 6</a>
+      <a href="../lab7/index.html">Lab 7</a>
+      <a href="../lab8/index.html">Lab 8</a>
+      <a href="../lab9/index.html" aria-current="page">Lab 9</a>
+      <a href="../lab10/index.html">Lab 10</a>
     </nav>
-    <main>
-        <h1>Lab 9</h1>
-        <p>Lab 9 will be added here.</p>
-    </main>
+
+    <h1>Lab 9 — Geospatial Visualization</h1>
+
+    <p class="note">
+      Comparing 2025 nominal GDP through a geographic choropleth and a GDP
+      cartogram. Both views use the same IMF-based top-50 GDP dataset and are
+      coordinated through country selection.
+    </p>
+
+    <section class="intro">
+
+      <h2>1. Dataset Description</h2>
+
+      <p>
+        This lab uses the provided <code>lab9_gdp_2025_top50.csv</code> dataset,
+        which contains the 50 largest economies by
+        <strong>2025 nominal GDP</strong>. The dataset includes an ISO-3
+        geographic identifier, country or economy name, GDP in billions of
+        U.S. dollars, and GDP rank. Countries outside the provided top-50
+        dataset are treated as <strong>missing data</strong>, not as zero GDP.
+      </p>
+
+      <ul class="corpus-stats">
+        <li><strong>50</strong> economies</li>
+        <li><strong>2025</strong> nominal GDP</li>
+        <li><strong>Billions of USD</strong> as the quantitative variable</li>
+        <li><strong>ISO-3</strong> as the geographic join key</li>
+      </ul>
+
+      <p class="source-note">
+        Geographic boundaries are joined to the statistical data using ISO-3
+        identifiers. The geographic map uses D3's
+        <code>geoNaturalEarth1()</code> projection and
+        <code>geoPath()</code> to draw the GeoJSON boundaries.
+      </p>
+
+    </section>
+
+    <section class="chart-section map-card">
+
+      <h2>2. 2025 GDP Choropleth</h2>
+
+      <p class="note">
+        Country position and shape preserve the original geography, while color
+        encodes 2025 nominal GDP. GDP is highly right-skewed, so a logarithmic
+        color scale is used to make differences among both very large and
+        comparatively smaller economies easier to distinguish.
+      </p>
+
+      <div class="map-controls">
+
+        <button id="reset-maps" type="button">
+          Reset selection and zoom
+        </button>
+
+        <span
+          id="selection-status"
+          class="selection-status"
+          aria-live="polite"
+        >
+          No country selected.
+        </span>
+
+      </div>
+
+      <div
+        id="choropleth"
+        class="map-wrap"
+        aria-label="2025 GDP choropleth map"
+      ></div>
+
+      <div class="legend">
+
+        <div class="legend-title">
+          2025 nominal GDP (billion USD, log scale)
+        </div>
+
+        <div
+          class="legend-bar"
+          aria-hidden="true"
+        ></div>
+
+        <div class="legend-labels">
+          <span id="legend-min">—</span>
+          <span>$1,000B</span>
+          <span>$10,000B</span>
+          <span id="legend-max">—</span>
+        </div>
+
+        <div class="legend-missing">
+          <span class="legend-missing-swatch"></span>
+          <span>No GDP value in the provided top-50 dataset</span>
+        </div>
+
+      </div>
+
+      <p id="choropleth-status" class="map-status">
+        Loading geographic data…
+      </p>
+
+    </section>
+
+    <section class="chart-section map-card">
+
+      <h2>3. 2025 GDP Cartogram</h2>
+
+      <p class="note">
+        This cartogram intentionally distorts geographic area so that countries
+        with larger GDP occupy more visual area.
+        <strong>Area is the primary quantitative encoding</strong>, while color
+        is retained to help readers connect the cartogram to the choropleth.
+        Click a country to highlight the same country in both views.
+      </p>
+
+      <div
+        id="cartogram"
+        class="map-wrap"
+        aria-label="2025 GDP cartogram"
+      ></div>
+
+      <p id="cartogram-status" class="map-status">
+        Loading cartogram…
+      </p>
+
+    </section>
+
+    <section class="design">
+
+      <h2>4. Design and Comparison</h2>
+
+      <h3>
+        1. Which countries are most visually prominent in each map?
+      </h3>
+
+      <p>
+        In the choropleth, the United States and China are most visually
+        prominent because they have the darkest colors. In the cartogram,
+        they are also prominent because their much larger GDP values produce
+        substantially larger circles.
+      </p>
+
+      <h3>
+        2. Which countries become much larger or smaller in the cartogram?
+      </h3>
+
+      <p>
+        The United States and China become much larger because their GDP is
+        substantially higher than that of most other economies. Geographically
+        large countries such as Canada, Russia, and Australia become relatively
+        smaller because their land area is no longer the primary size encoding.
+      </p>
+
+      <h3>
+        3. What geographic information does the choropleth preserve?
+      </h3>
+
+      <p>
+        The choropleth preserves country boundaries, geographic location,
+        relative position, and continental structure. Countries remain
+        recognizable within their actual geographic context.
+      </p>
+
+      <h3>
+        4. What geographic information does the cartogram distort?
+      </h3>
+
+      <p>
+        The cartogram distorts geographic area and country shape because visual
+        area is determined by GDP rather than actual land area. Geographic
+        distances and boundaries are therefore less meaningful.
+      </p>
+
+      <h3>
+        5. What types of questions or tasks can the choropleth best support?
+      </h3>
+
+      <p>
+        The choropleth is well suited to questions about the geographic distribution
+        of economic activity. It allows viewers to identify where high- and low-GDP
+        economies are located, compare neighboring countries, and recognize regional
+        patterns across continents. Because countries remain in their actual
+        geographic positions and retain recognizable boundaries, the choropleth also
+        supports questions that depend on spatial context, such as whether economies
+        with relatively high GDP are concentrated in particular regions.
+      </p>
+
+      <h3>
+        6. What types of questions or tasks can the cartogram best support?
+      </h3>
+
+      <p>
+        The cartogram is better suited to comparing the relative economic magnitude
+        of countries. By encoding GDP through area, it makes large differences in
+        economic size visually prominent and allows viewers to compare countries
+        based on the amount of GDP they represent rather than their physical land
+        area. It is especially useful for identifying the economies that account for
+        a large share of global economic output and for seeing how economic size
+        differs from the apparent size of countries on a conventional map.
+      </p>
+
+      <h3>
+        7. How does changing from color encoding to area encoding change your
+        perception of global economic size?
+      </h3>
+
+      <p>
+        Changing from color encoding to area encoding changes the way quantitative
+        differences are perceived. In the choropleth, GDP differences are expressed
+        through color intensity while the familiar geographic shapes and locations
+        remain visible. This makes it easier to connect economic values with
+        geographic regions. In the cartogram, larger GDP values produce larger
+        visual areas, making differences in economic magnitude feel more direct and
+        substantial. At the same time, this encoding reduces the reliability of
+        geographic size and shape as spatial information. The change therefore
+        creates a trade-off: the choropleth provides stronger geographic context,
+        while the cartogram gives greater visual emphasis to relative economic
+        magnitude.
+            </p>
+
+    </section>
+
+  </main>
+
+  <div id="tooltip" class="tooltip"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+  <script src="https://unpkg.com/topojson-server@3"></script>
+  <script src="lab9.js"></script>
+
 </body>
 </html>
